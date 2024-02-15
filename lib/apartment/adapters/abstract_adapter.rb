@@ -46,6 +46,10 @@ module Apartment
         end
       end
 
+      def public?
+        current && current == 'public'
+      end
+
       #   Return the original public tenant
       #
       #   @return {String} default tenant name

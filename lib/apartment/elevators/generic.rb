@@ -19,7 +19,7 @@ module Apartment
         if database
           Apartment::Tenant.switch(database) { @app.call(env) }
         else
-          raise 'Tenant not found'
+          #raise 'Tenant not found'
           @app.call(env)
         end
       end
