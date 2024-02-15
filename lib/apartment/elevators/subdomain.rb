@@ -29,7 +29,10 @@ module Apartment
         tenant.presence
         return nil if tenant.blank?
 
-        ::Tenant.find_by(sub_domain: tenant).id rescue nil
+        tenant_id = ::Tenant.find_by(sub_domain: tenant).id rescue nil
+        raise 'Tenant not found' if tenant_id.blank?
+
+        tenant_id
       end
 
     protected
